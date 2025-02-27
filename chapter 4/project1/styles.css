@@ -1,0 +1,194 @@
+/* 
+Navigation menu styling.
+*/
+
+nav ul li {
+    list-style: none;
+    display: inline;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+nav ul li a {
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:visited {
+    color: white;
+}
+
+nav ul li a:hover {
+    color: white;
+    background-color: #F50057;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    background-color: #355070;
+}
+
+/* 
+Header and subheader styling.
+*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: #1b263b;
+    color: white;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    margin-left: 20px;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+header p {
+    margin-left: 21px;
+    padding: 0;
+    margin-top: 0;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+/* 
+Location information and picture styling.
+*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+main h3 {
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+}
+
+body h1,
+body h2,
+body h3 {
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+body p, body a {
+    font-family: sans-serif;
+}
+
+body
+{
+    background-color: #778da9;
+}
+
+.location h3 {
+    align-self: flex-start;
+    margin-left: 20px;
+    font-weight: 900;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #33415c;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+
+.location img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 0px;
+}
+
+.location figcaption {
+    color: whitesmoke;
+    font-size: 1.5em;
+    font-weight: lighter;
+    background-color: #355070;
+    margin-top: 0px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.loctext {
+    color: whitesmoke;
+    padding: 20px;
+}
+
+.loctext a {
+    color: lightblue;
+}
+
+/* 
+Related photos styling.
+*/
+
+.rel-photos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    background-color: #33415c;
+}
+
+.rel-photos h3 {
+    color: white;
+    font-size: 1.5em;
+    align-self: center;
+    margin-left: 20px;
+    font-weight: 10;
+}
+
+.photos {
+    display: flex;
+    gap: 20px;
+    border-radius: 5px;
+}
+
+.photos img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/*
+Reviews styling.
+*/
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    background-color: #33415c;
+    color: white;
+}
+
+.background {
+    display: flex;
+    background-color: #33415c;
+}
