@@ -21,6 +21,13 @@ header nav ul {
     padding: 5px;
 }
 
+h1, h2, h3 {
+    background-image: url("images/header-background.png");
+    background-repeat: repeat;
+    background-position: center;
+    color: whitesmoke;
+}
+
 .mainMenu {
     width: 100%;
     margin-top: 0px;
@@ -53,11 +60,18 @@ header h1 {
     margin: 0;
     padding: 0;
     padding-left: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: #3e5c76;
+}
+
+header a {
+    text-decoration: none;
 }
 
 header h1 span {
     color: red;
+    font-weight: bolder;
     font-size: 1.0em;
 }
 
@@ -77,26 +91,122 @@ header h1 span {
     border: #0d1321 2px solid;
 }
 
+.profile h2 {
+    background-image: none;
+    color: black;
+    font-size: 1.5em
+}
+
 .stdItem {
     background-color: white;
     border: #0d1321 2px solid;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.stdItem h2 {
-    color: #0d1321;
+.stdItem p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.stdItem em {
+    color: grey;
+
+}
+
+.stdItem h3 {
     font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    box-sizing: border-box;
 }
 
 .stdItem img {
     width: 100%;
     height: auto;
+}
+
+.stdItem a {
+    color: rgb(97, 197, 230);
+}
+
+.stdItem img {
+    width: 15px;
+    height: 15px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #3e5c76;
+}
+
+.actions ul {
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 5px;
+}
+
+.actions ul li a {
+    display: inline-flex;
+    list-style-type: none;
+    color: lightblue;
+    padding: 6px;
+    background-color: orangered;
+    text-decoration: none;;
+    border-radius: 5px;
+}
+
+.actions ul li a:hover {
+    background-color: red;
+}
+
+.actions ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+a[href^="tel:"] {
+    background: url("images/call.png") no-repeat 3px;
+    padding-left: 1em;
+    color: blue;
+}
+
+a[href^="mailto:"] {
+    background: url("images/email.png") no-repeat 3px;
+    padding-left: 1em;
+    color: blue;
+}
+
+.stdItem figure img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #3e5c76;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: lightblue;
+}
+
+footer a:hover {
+    color: red;
 }
