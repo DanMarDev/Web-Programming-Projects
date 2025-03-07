@@ -31,17 +31,24 @@ fieldset {
 
 div#searchBox, div#settingsBox, div#paintingBox {
    margin: 0.2em auto;
+   margin-left: 2em;
+   margin-right: 2em;
    background-color: #E0E0E0;
    border: 1pt solid #616161;
    padding: 5px;
-   padding-top: 10px;
-   padding-bottom: 10px;
+   padding-top: 20px;
+   padding-bottom: 20px;
 
 }
 div#searchBox { margin-top: 1em; }
 div#artistBox { 
    background-color: #EEEEEE;
     
+}
+
+div#paintingBox {
+   margin-top: 1em;
+   margin-bottom: 1em;
 }
 
 
@@ -63,15 +70,68 @@ caption {
 
 table {
    width: 100%;
-   border-collapse: separate;
+   border-collapse: collapse;
 }
 
-table, th, td {
-   border: 1px solid black;
+table thead {
+   background-color: darkgray
 }
 
-table tr td a {
-   text-decoration: none;
-   color: black;
+table caption {
+   font-size: 1.5em;
+   font-weight: bold;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   text-align: center;
 }
+
+table tbody tr:nth-child(odd) {
+   background-color: #F5F5F5;
+}
+
+table tbody tr, table thead tr {
+   border-bottom: 2px solid #BDBDBD;
+}
+
+table tbody tr:last-child {
+   border-bottom: none;
+}
+
+
+table  tr td button {
+   background-color: silver;
+   border: none;
+   padding: 5px;
+   margin: 5px;
+   border-radius: 5px;
+}
+
+table tr td button:hover {
+   background-color: lightblue;
+   color: white;
+}
+
+table {
+   text-align: left;
+}
+
+table tbody tr td img {
+   width: 100px;
+   height: 100px;
+   margin: 5px;
+   padding: 5px;
+   border: 1px solid #616161;
+}
+
+table tbody tr td button img {
+   width: 20px;
+   height: 20px;
+   margin: 0;
+   padding: 0;
+   border: none;
+}
+
+
+
+
 

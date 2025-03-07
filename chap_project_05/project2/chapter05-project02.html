@@ -6,34 +6,36 @@
    <link rel="stylesheet" href="chapter05-project02.css" />
 </head>
 <body>
-<form  >
+<form action="http://www.randyconnolly.com/tests/process.php" method="GET">
     <fieldset>
        <legend>Advanced Art Work Search</legend>
 
         <div id="searchBox">
-
             <input type="text" id="title" name="title" placeholder="Search Titles" />
-        <label for ="subject">Subject:</label>
-        <div class="radio-buttons">
-            <input type="radio" id="subject1" name="subject" value="1" />
-            <label for="subject1">History</label>
-            <input type="radio" id="subject2" name="subject" value="2" />
-            <label for="subject2">Person</label>
-            <input type="radio" id="subject3" name="subject" value="3" />
-            <label for="subject3">Landscape</label>
-       </div>
-       <select>
-            <option value="1">Select a Genre</option>
-            <option value="2">Baroque</option>
-            <option value="4">Renaissance</option>
-            <option value="5">Realism</option>
-       </select>
-       <input type="submit" value="Search" />
+            <label for ="subject">Subject:</label>
+            <div class="radio-buttons">
+                <input type="radio" id="subject1" name="subject" value="1" />
+                <label for="subject1">History</label>
+                <input type="radio" id="subject2" name="subject" value="2" />
+                <label for="subject2">Person</label>
+                <input type="radio" id="subject3" name="subject" value="3" />
+                <label for="subject3">Landscape</label>
+            </div>
 
+            <select id="genre" name="genre">
+                <option value="1">Select a Genre</option>
+                <option value="2">Baroque</option>
+                <option value="4">Renaissance</option>
+                <option value="5">Realism</option>
+                <option value="6">Romanticism</option>
+                <option value="7">Mannerism</option>
+                <option value="8">Neo-Classicism</option>
+            </select>
+            <input type="submit" value="Search" />
         </div>   
         <div id="settingsBox">
 
-            <select>
+            <select id="actions" name="actions">
                 <option value="1">Bulk Actions</option>
                 <option value="2">Archive</option>
                 <option value="3">Edit</option>
@@ -50,6 +52,7 @@
                 <thead>
                     <tr>
                         <th></th>
+                        <th></th>
                         <th>Title</th>
                         <th>Artist</th>
                         <th>Year</th>
@@ -59,7 +62,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="checkbox" name="index[]" /></td>
+                        <td><input type="checkbox" name="index[]" value="1"/></td>
+                        <td><img src="images/05030.jpg" alt="painting1" /></td>
                         <td>Death of Marat</td>
                         <td>David, Jacques-Louis</td>
                         <td>1793</td>
@@ -70,8 +74,64 @@
                             <button><img src="images/delete.png"></button>
                             <button><img src="images/collection.png"></button>
                         </td>
-
                     </tr>
+                    <tr>
+                        <td><input type="checkbox" name="index[]" value="2"/></td>
+                        <td><img src="images/120010.jpg" alt="painting2" /></td>
+                        <td>Portait of Eleanor of Toledo</td>
+                        <td>Bronzino, Agnolo</td>
+                        <td>1545</td>
+                        <td>Mannerism</td>
+                        <td>
+                            <button><img src="images/archive.png"></button>
+                            <button><img src="images/edit.png"></button>
+                            <button><img src="images/delete.png"></button>
+                            <button><img src="images/collection.png"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="index[]" value="3"/></td>
+                        <td><img src="images/07020.jpg" alt="painting3" /></td>
+                        <td>Liberty Leading the People</td>
+                        <td>Delacroix, Eugene</td>
+                        <td>1830</td>
+                        <td>Romanticism</td>
+                        <td>
+                            <button><img src="images/archive.png"></button>
+                            <button><img src="images/edit.png"></button>
+                            <button><img src="images/delete.png"></button>
+                            <button><img src="images/collection.png"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="index[]" value="4"/></td>
+                        <td><img src="images/13030.jpg" alt="painting4" /></td>
+                        <td>Arrangement in Grey and Black</td>
+                        <td>Whistler, James Abbott</td>
+                        <td>1871</td>
+                        <td>Realism</td>
+                        <td>
+                            <button><img src="images/archive.png"></button>
+                            <button><img src="images/edit.png"></button>
+                            <button><img src="images/delete.png"></button>
+                            <button><img src="images/collection.png"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="index[]" value="5"/></td>
+                        <td><img src="images/06010.jpg" alt="painting5" /></td>
+                        <td>Mademoiselle Caroline Riviere</td>
+                        <td>Ingres, Jean-Auguste</td>
+                        <td>1806</td>
+                        <td>Neo-Classicism</td>
+                        <td>
+                            <button><img src="images/archive.png"></button>
+                            <button><img src="images/edit.png"></button>
+                            <button><img src="images/delete.png"></button>
+                            <button><img src="images/collection.png"></button>
+                        </td>
+                    </tr>
+
             </table>
 
         </div> 
