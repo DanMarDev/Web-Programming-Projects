@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>Chapter 5</title>
+   <link rel="stylesheet" href="reset.css" />
+   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">       
+   <link rel="stylesheet" href="chapter05-project01.css" />
+</head>
+<body>
+
+    <section>
+         <h3>Data</h3>
+         <table>
+               <caption>Orders</caption>
+               <thead>
+                    <tr>
+                         <th>Id</th>
+                         <th>Date</th>
+                         <th>Customer</th>
+                         <th>Country</th>
+                         <th>Progress</th>
+                         <th>Status</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr>
+                         <td>123</td>
+                         <td><time datetime="2021-02-20">December 2, 2019</time></td>
+                         <td>Jane Doe</td>
+                         <td>United States</td>
+                         <td><progress value="100" max="100"></progress></td>
+                         <td><span class="status-shipped">Shipped</span></td>
+                    <tr>
+                         <td>234</td>
+                         <td><time datetime="2020-01-01">January 1, 2020</time></td>
+                         <td>John Doe</td>
+                         <td>Canada</td>
+                         <td><progress value="100" max="100"></progress></td>
+                         <td><span class="status-shipped">Shipped</span></td> 
+                    </tr>
+                    <tr>
+                         <td>345</td>
+                         <td><time datetime="2020-02-14">February 14, 2020</time></td>
+                         <td>John Smith</td>
+                         <td>Mexico</td>
+                         <td><progress value="50" max="100"></progress></td>
+                         <td><span class="status-processing">Processing</span></td>
+                    </tr>
+                    <tr>
+                         <td>456</td>
+                         <td><time datetime="2020-03-17">March 17, 2020</time></td>
+                         <td>Jane Smith</td>
+                         <td>France</td>
+                         <td><progress value="25" max="100"></progress></td>
+                         <td><span class="status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                         <td>567</td>
+                         <td><time datetime="2020-04-01">April 1, 2020</time></td>
+                         <td>Joe Schmoe</td>
+                         <td>Canada</td>
+                         <td><progress value="25" max="100"></progress></td>
+                         <td><span class="status-pending">Pending</span></td>
+               </tbody>
+         </table>
+         
+       
+         
+    </section>
+    
+    <section>
+         <h3>Revise</h3>
+
+         <form action="http://www.randyconnolly.com/tests/process.php" method="GET">
+               <fieldset>
+                    <legend>Filter Orders</legend>
+                    <label for="status">Customer</label>
+                    <br />
+                    <input type="text" id="customer" name="customer" />
+                    <br />
+                    <label for="country">Country</label>
+                    <br />
+                    <select id="country" name="country">
+                         <option value="United States">United States</option>
+                         <option value="Canada">Canada</option>
+                         <option value="Mexico">Mexico</option>
+                         <option value="France">France</option>
+                    </select>
+                    <br />
+                    <label for="status">Status</label>
+                    <div class="radio-buttons">
+                    <br />
+                    <label for="status-shipped">
+                         <input type="radio" id="status-shipped" name="status" value="shipped" />
+                         Shipped
+                    </label>
+                    <label for="status-processing">
+                         <input type="radio" id="status-processing" name="status" value="processing" />
+                         Processing
+                    </label>
+                    <label for="status-pending">
+                         <input type="radio" id="status-pending" name="status" value="pending" />
+                         Pending
+                    </label>
+                    </div>
+                    <br />
+                    <label for="date">Order Date</label>
+                    <br />
+                    <input type="date" id="date" name="date" />
+                    <br />
+                    <input type="submit" value="Filter" />
+               </fieldset>
+         </form>
+                
+    </section>    
+
+
+</body>
+</html>
