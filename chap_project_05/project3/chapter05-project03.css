@@ -69,4 +69,53 @@ form p {
    margin-top: 0.5em;
 }
 
+textarea, input#title {
+   width: 100%;
+   box-sizing: border-box;
+   border: 2px solid #7986CB;
+}
 
+table {
+   width: 100%;
+   padding: 0.5rem;
+}
+
+select#continent, select#country, input#city {
+   box-sizing: border-box;
+   width: 75%;
+}
+
+.border {
+   border: 1px solid black;
+   margin: 0.5em;
+   padding: 0.5em;
+}
+
+.agree {
+   padding: 5px;
+   padding-bottom: 10px;
+   background-color: #9Fa8DA;
+   border: 1px solid #7986CB;
+}
+
+tr td {
+   padding: 0.5em;
+}
+
+.blue-background {
+   background-color: #9FA8DA;
+   padding: 0.5em;
+}
+
+input.button {
+   background-color: #7986CB;
+   color: white;
+   padding: 15px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+input.button:hover {
+   background-color: #E91E63;
+}
