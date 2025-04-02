@@ -59,6 +59,11 @@ nav ul li a:hover {
 
 /* Location information styles */
 
+.description {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
 main {
     margin-left: 60px;
     margin-right: 60px;
