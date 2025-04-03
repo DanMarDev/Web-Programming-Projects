@@ -1,4 +1,5 @@
-<?php include 'functions.inc.php'; ?>
+<?php include 'functions.inc.php';
+include 'travel-data.inc.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
