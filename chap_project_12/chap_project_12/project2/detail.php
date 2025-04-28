@@ -1,8 +1,8 @@
 <?php
 include 'travel-data.inc.php';
 
-
-    
+$id = isset($_GET['id']) ? $_GET['id'] : 22; // default to 22 if no id is provided
+$image = $images[$id]; // get the image data for the given id
 ?>
 
 <!DOCTYPE html>
@@ -37,20 +37,20 @@ include 'travel-data.inc.php';
                     
                     
                     <div class="col-md-8">                                                
-                        <img class="img-responsive" src="images/medium/6114850721.jpg" alt="View of Cologne">
-                        <p class="description">View of Cologne from atop the Cologne Cathedral</p>
+                        <img class="img-responsive" src="images/medium/<?php echo $image['path']; ?>" alt="View of Cologne">
+                        <p class="description"><?php echo $image['description']; ?></p>
                     </div>
 
                     <div class="col-md-4">                                                
-                        <h2>View of Cologne</h2>
+                        <h2><?php echo $image['title']; ?></h2>
 
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <ul class="details-list">
-                                    <li>By: <a href="#">Joao Fernandes</a></li>
-                                    <li>Country: <a href="#">Germany</a></li>
-                                    <li>City: <a href="#">Cologne</a></li>
-                                    <li>Taken on: August 8, 2017</li>
+                                    <li>By: <a href="#"><?php echo $image['user']; ?></a></li>
+                                    <li>Country: <a href="#"><?php echo $image['country']; ?></a></li>
+                                    <li>City: <a href="#"><?php echo $image['city']; ?></a></li>
+                                    <li>Taken on: <?php echo $image['taken']; ?></li>
                                 </ul>
                             </div>
                         </div>
@@ -73,10 +73,11 @@ include 'travel-data.inc.php';
                         <h4>Tags</h4>
                         <div class="panel panel-default">
                             <div class="panel-body" id="tags">
-                                                                    <span class="label label-default">cathedral</span>
-                                                                    <span class="label label-default">high</span>
-                                                                    <span class="label label-default">birds-eye</span>
-                                
+                                <?php
+                                foreach ($image['tags'] as $tag) {
+                                    echo "<span class=\"label label-default\">$tag</span> ";
+                                }
+                                ?>
                             </div>
                         </div>
                         
