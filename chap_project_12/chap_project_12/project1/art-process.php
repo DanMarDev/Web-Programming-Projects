@@ -22,31 +22,31 @@
       <caption class="results__caption">Art Work Saved</caption>
       <tr>
         <td class="results__label">Title</td>    
-        <td class="results__value"></td> 
+        <td class="results__value"><?php echo $_POST["title"]; ?></td> 
       </tr>
       <tr>
         <td class="results__label">Description</td>    
-        <td class="results__value"></td> 
+        <td class="results__value"><?php echo $_POST["description"]; ?></td> 
       </tr>
       <tr>
         <td class="results__label">Genre</td>    
-        <td class="results__value"></td> 
+        <td class="results__value"><?php echo $_POST["genre"]; ?></td>
       </tr>
       <tr>
         <td class="results__label">Subject</td>    
-        <td class="results__value"></td> 
+        <td class="results__value"><?php echo $_POST["subject"]; ?></td>
       </tr>
       <tr>
         <td class="results__label">Medium</td>    
-        <td class="results__value"></td> 
+        <td class="results__value"><?php echo $_POST["medium"]; ?></td>
       </tr>   
       <tr>
         <td class="results__label">Year</td>    
-        <td class="results__value"></td> 
+        <td class="results__value"><?php echo $_POST["year"]; ?></td>
       </tr>  
       <tr>
         <td class="results__label">Museum</td>    
-        <td class="results__value"></td> 
+        <td class="results__value"><?php echo $_POST["museum"]; ?></td>
       </tr>          
     </table>
     

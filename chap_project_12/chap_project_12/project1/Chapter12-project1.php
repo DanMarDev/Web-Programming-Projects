@@ -1,6 +1,14 @@
-<?php 
-
-
+<?php
+// Chapter 12 - Project 1
+    $genres = ['Abstract', 'Baroque', 'Gothic', 'Renaissance'];
+    $subjects = ['Animals', 'Landscape', 'People'];
+    function generateOptions(array $array) {
+        $options = '';
+        foreach ($array as $item) {
+            $options .= "<option value=\"$item\">$item</option>";
+        }
+        return $options;
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +24,7 @@
 <?php include 'header.inc.php'; ?>
     
 <main>
-<form class="form"  id="mainForm">
+<form class="form"  id="mainForm" method="post" action="art-process.php">
    <fieldset class="form__panel">
       <legend class="form__heading">Edit Art Work Details</legend>
         <p class="form__row">
@@ -30,15 +38,15 @@
        <p class="form__row"> 
            <label>Genre</label><br/>
            <select name="genre" class="form__input form__select">
-              <option>Choose genre</option> 
-              
+              <option>Choose genre</option>
+              <?php echo generateOptions($genres); ?>
            </select>
        </p>
        <p class="form__row"> 
            <label>Subject</label><br/>
            <select name="subject" class="form__input form__select">
               <option>Choose subject</option> 
-              
+              <?php echo generateOptions($subjects); ?>
            </select>
        </p>
        <p class="form__row">	
