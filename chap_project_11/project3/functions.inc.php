@@ -32,7 +32,7 @@ function outputPostRow($number) {
     echo '   <div class="col-md-8">';
     echo '      <h2>' . $title . '</h2>';
     echo '      <div class="details">';
-    echo '         Posted by <a href="user.php?id=' . $userId . '">' . $userName . '</a>';
+    echo '         Posted by ' . generateLink('user.php?id=' . $userId, $userName, '');
     echo '         <span class="pull-right">' . $date . '</span>';
     echo '         <p class="ratings">';
     outputStars($reviewsRating);
@@ -43,7 +43,6 @@ function outputPostRow($number) {
     echo '   </div>';
     echo '</div>   <!-- /.row -->';
     echo '<hr>';
-
 }
 
 ?>
