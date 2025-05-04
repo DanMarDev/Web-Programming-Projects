@@ -1,10 +1,56 @@
 <?php
-
 include 'includes/book-utilities.inc.php';
 
+// File paths
+$customerFile = 'data/customers.txt';
+$bookFile = 'data/books.txt';
+$orderFile = 'data/orders.txt';
 
+$customers = array();
+if (file_exists($customerFile)) {
+    $lines = file($customerFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $fields = explode(';', $line);
+        if (count(($fields)) >= 12) {
+            $customers[$fields[0]] = array(
+                'id' => $fields[0],
+                'firstName' => $fields[1],
+                'lastName' => $fields[2],
+                'email' => $fields[3],
+                'university' => $fields[4],
+                'address' => $fields[5],
+                'city' => $fields[6],
+                'state' => $fields[7],
+                'country' => $fields[8],
+                'zip' => $fields[9],
+                'phone' => $fields[10],
+                'sales' => $fields[11]
+            );
+        }
+    }
+}
 
+$orders = array();
+if (file_exists($orderFile)) {
+    $lines = file($orderFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $fields = explode(',', $line);
+        if (count($fields) >= 5) {
+            $orders[$fields[0]][] = array(
+                'orderid' => $fields[0],
+                'customerid' => $fields[1],
+                'isbn' => $fields[2],
+                'title' => $fields[3],
+                'category' => $fields[4]
+            );
+        }
+    }
+}
 
+$selectedCustomer = null;
+if (isset($_GET['customerid']) && array_key_exists($_GET['customerid'], $customers)) {
+    $selectedCustomer = $customers[$_GET['customerid']];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +88,7 @@ include 'includes/book-utilities.inc.php';
 
             <div class="mdl-grid">
 
+              <!-- Customer List -->
               <!-- mdl-cell + mdl-card -->
               <div class="mdl-cell mdl-cell--7-col card-lesson mdl-card  mdl-shadow--2dp">
                 <div class="mdl-card__title mdl-color--orange">
@@ -58,8 +105,20 @@ include 'includes/book-utilities.inc.php';
                         </tr>
                       </thead>
                       <tbody>
-
-                                              
+                        <?php foreach ($customers as $customer): ?>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <a href="?customerid=<?php echo $customer['id']; ?>">
+                                        <?php echo $customer['firstName'] . ' ' . $customer['lastName']; ?>
+                                    </a>
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric"><?php echo $customer['university']; ?></td>
+                                <td class="mdl-data-table__cell--non-numeric"><?php echo $customer['city']; ?></td>
+                                <td>
+                                  <span class="inlinesparkline"><?php echo $customer['sales']; ?></span>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>               
                       </tbody>
                     </table>
                 </div>
@@ -70,28 +129,37 @@ include 'includes/book-utilities.inc.php';
     
 
        
+                  <!-- Customer Details -->
                   <!-- mdl-cell + mdl-card -->
                   <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp">
                     <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
                       <h2 class="mdl-card__title-text">Customer Details</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        <h4>Customer Name here</h4>
-     
-                                                                                                                                                                           
+                    <?php if ($selectedCustomer): ?>
+                        <h4><strong><?php echo $selectedCustomer['firstName'] . ' ' . $selectedCustomer['lastName']; ?></strong></h4>
+                        <p><?php echo $selectedCustomer['university']; ?></p>
+                        <p><?php echo $selectedCustomer['address']; ?></p>
+                        <p><?php echo $selectedCustomer['city'] . ', ' . $selectedCustomer['country']; ?></p>
+                    <?php else: ?>
+                        <p>Please select a customer to view their details.</p>
+                    <?php endif; ?>                                                                                                                                   
                     </div>    
                   </div>  <!-- / mdl-cell + mdl-card -->   
 
+                  <!-- Order Details -->
                   <!-- mdl-cell + mdl-card -->
                   <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp">
                     <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
                       <h2 class="mdl-card__title-text">Order Details</h2>
                     </div>
-                    <div class="mdl-card__supporting-text">       
-                               
-                                                                      
-
-                               <table class="mdl-data-table  mdl-shadow--2dp">
+                    <div class="mdl-card__supporting-text">
+                        <?php if ($selectedCustomer): 
+                          $customerOrders = array_filter($orders, function($order) use ($selectedCustomer) {
+                              return $order[0]['customerid'] == $selectedCustomer['id'];
+                          });
+                          if (count($customerOrders) > 0): ?>
+                            <table class="mdl-data-table  mdl-shadow--2dp">
                               <thead>
                                 <tr>
                                   <th class="mdl-data-table__cell--non-numeric">Cover</th>
@@ -100,13 +168,23 @@ include 'includes/book-utilities.inc.php';
                                 </tr>
                               </thead>
                               <tbody>
-                           
-                    
+                                <?php foreach ($customerOrders as $order): ?>
+                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                          <img src="images/tinysquare/<?php echo $order[0]['isbn']; ?>.jpg" alt="<?php echo $order[0]['title']; ?>" width="50" height="75">                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric"><?php echo $order[0]['isbn']; ?></td>
+                                        <td class="mdl-data-table__cell--non-numeric"><?php echo $order[0]['title']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                               </tbody>
                             </table>
-       
-
-                        </div>    
+                          <?php else: ?>
+                            <p>No orders found for <?php echo $selectedCustomer['firstName'] . ' ' . $selectedCustomer['lastName']; ?>.</p>
+                          <?php endif; ?>
+                        </div>
+                    <?php else: ?>
+                        <p>Please select a customer to view their orders.</p>
+                    <?php endif; ?>    
                    </div>  <!-- / mdl-cell + mdl-card -->             
 
 
@@ -118,6 +196,14 @@ include 'includes/book-utilities.inc.php';
         </section>
     </main>    
 </div>    <!-- / mdl-layout --> 
-          
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.inlinesparkline').sparkline('html', {
+      type: 'bar',
+      barColor: '#FF9800'
+    });
+  });
+</script>
 </body>
 </html>
